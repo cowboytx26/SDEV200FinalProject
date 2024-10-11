@@ -5,7 +5,9 @@ Date of Creation: 09/22/2024
 Version 1.0: Initial Creation
  */
 
-public class patient {
+import java.io.*;
+
+public class patient implements Serializable {
 
     private String firstName;
     private String lastName;
@@ -69,6 +71,17 @@ public class patient {
 
     public void setEndocrinologistName(String endocrinologistName) {
         this.endocrinologistName = endocrinologistName;
+    }
+
+    public void writePatientToFile() {
+        try {
+            FileOutputStream patientFile = new FileOutputStream("patient.bin");
+            ObjectOutputStream patientObject = new ObjectOutputStream(patientFile);
+            patientObject.writeObject(this);
+            patientObject.flush();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

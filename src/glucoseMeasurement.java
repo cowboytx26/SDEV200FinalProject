@@ -7,21 +7,26 @@ Date of Creation: 09/22/2024
 Version 1.0: Initial Creation
  */
 
+import java.time.LocalDateTime;
+
 public class glucoseMeasurement extends measurement {
 
     private int glucose;
 
     public glucoseMeasurement(int glucose) {
         this.glucose = glucose;
+        this.typeOfMeasurement = "glucose";
+        this.dateOfMeasurement = LocalDateTime.now();
     }
 
     public glucoseMeasurement(int glucose, String typeOfMeasurement) {
         this.glucose = glucose;
         this.typeOfMeasurement = typeOfMeasurement;
+        this.dateOfMeasurement = LocalDateTime.now();
     }
 
-
     public glucoseMeasurement() {
+
     }
 
     public int getGlucose() {
@@ -30,11 +35,6 @@ public class glucoseMeasurement extends measurement {
 
     public void setGlucose(int glucose) {
         this.glucose = glucose;
-    }
-
-    @Override
-    public boolean saveMeasurement() {
-        return false;
     }
 
     @Override

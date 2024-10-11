@@ -6,11 +6,15 @@ Author:   Brian Wiatrek
 Date of Creation: 09/22/2024
 Version 1.0: Initial Creation
  */
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-abstract class measurement {
+abstract class measurement implements Serializable {
     public String typeOfMeasurement;
     public LocalDateTime dateOfMeasurement;
+
+    public measurement(){
+    }
 
     public String getTypeOfMeasurement() {
         return typeOfMeasurement;
@@ -20,8 +24,6 @@ abstract class measurement {
         this.typeOfMeasurement = typeOfMeasurement;
     }
 
-    public abstract boolean saveMeasurement();
-
     public LocalDateTime getDateOfMeasurement() {
         return dateOfMeasurement;
     }
@@ -29,4 +31,7 @@ abstract class measurement {
     public void setDateOfMeasurement(LocalDateTime dateOfMeasurement) {
         this.dateOfMeasurement = dateOfMeasurement;
     }
+
+
+
 }
